@@ -18,23 +18,20 @@ else
 fi
 
 
-USERPATH="/mnt/c/Users"
+#USERPATH="/mnt/c/Users" 
+#if [ -d "$USERPATH" ]; then FILEPATH="$USERPATH/desktop.ini"
+    #echo "processing $FILEPATH"
 
-if [ -d "$USERPATH" ]; then
+    #FILEPATH_BACKUP="$USERPATH/.desktop.ini.bak"
 
-    FILEPATH="$USERPATH/desktop.ini"
-    echo "processing $FILEPATH"
+    ## original desktop.ini backup
+    #cp "$FILEPATH" "$FILEPATH_BACKUP"
 
-    FILEPATH_BACKUP="$USERPATH/.desktop.ini.bak"
+    #iconv -f utf-16 -t utf-8 < "$FILEPATH_BACKUP" |
+        #sed 's/^LocalizedResourceName/;LocalizedResourceName/' |
+        #iconv -f utf-8 -t utf-16 > "$FILEPATH";
 
-    # original desktop.ini backup
-    cp "$FILEPATH" "$FILEPATH_BACKUP"
-
-    iconv -f utf-16 -t utf-8 < "$FILEPATH_BACKUP" |
-        sed 's/^LocalizedResourceName/;LocalizedResourceName/' |
-        iconv -f utf-8 -t utf-16 > "$FILEPATH";
-
-fi
+#fi
 
 for FOLDERPATH in "3D Objects" Desktop Documents Downloads Favorites Contacts Music Links Pictures Searches "Saved Games" Videos
 do
